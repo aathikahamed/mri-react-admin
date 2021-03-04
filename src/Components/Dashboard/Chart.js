@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import Title from "./Title";
+import Title from "../Utils/Title";
 
 const data = {
   labels: [

@@ -13,8 +13,9 @@ import Badge from "@material-ui/core/Badge";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import { mainListItems, secondaryListItems } from "./listItems";
+import { mainListItems, secondaryListItems } from "./ListItems/listItems";
 import Avatar from "@material-ui/core/Avatar";
+import { useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -59,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    textTransform: "uppercase",
   },
   drawerPaper: {
     position: "relative",
@@ -80,28 +82,10 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(9),
     },
   },
-  appBarSpacer: theme.mixins.toolbar,
-  content: {
-    flexGrow: 1,
-    height: "100vh",
-    overflow: "auto",
-  },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  paper: {
-    padding: theme.spacing(2),
-    display: "flex",
-    overflow: "auto",
-    flexDirection: "column",
-  },
-  fixedHeight: {
-    height: 280,
-  },
 }));
 
 export default function Dashboard() {
+  const location = useLocation();
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -139,7 +123,7 @@ export default function Dashboard() {
             noWrap
             className={classes.title}
           >
-            Dashboard
+            {location.pathname.slice(1)}
           </Typography>
           <>
             <IconButton color="inherit">
@@ -157,6 +141,7 @@ export default function Dashboard() {
           </>
         </Toolbar>
       </AppBar>
+
       {/* Side Bar */}
       <Drawer
         variant="permanent"
