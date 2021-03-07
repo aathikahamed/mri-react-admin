@@ -6,6 +6,7 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import { Route } from "react-router-dom";
 import StudentsPage from "./Components/Pages/StudentsPage/StudentsPage";
 import Container from "@material-ui/core/Container";
+import StudentCreationsPage from "./Components/Pages/StudentCreationPage/StudentCreationPage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +36,7 @@ export default function App() {
           <Container maxWidth="lg" className={classes.container}>
             <Route exact path={["/", "/dashboard"]} component={Dashboard} />
             <Route path="/students" component={StudentsPage} />
+            <Route path="/new-student" component={StudentCreationsPage} />
           </Container>
         </main>
       </div>
