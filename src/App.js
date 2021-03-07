@@ -4,7 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import NavBar from "./Components/NavBar/NavBar";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import { Route } from "react-router-dom";
-import StudentsPage from "./Components/StudentsPage/StudentsPage";
+import StudentsPage from "./Components/Pages/StudentsPage/StudentsPage";
 import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({

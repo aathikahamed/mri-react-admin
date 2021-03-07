@@ -9,48 +9,45 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import EmailIcon from "@material-ui/icons/Email";
 import ListItem from "./ListItem";
 
-export const mainListItems = (
-  <>
-    <ListItem text="Dashboard">
-      <DashboardIcon />
-    </ListItem>
+const mainItems = [
+  {
+    icon: <DashboardIcon />,
+    text: "Dashboard",
+  },
+  {
+    icon: <AssignmentIndIcon />,
+    text: "Students",
+  },
+  {
+    icon: <PeopleIcon />,
+    text: "Staff",
+  },
+  {
+    icon: <AttachMoneyIcon />,
+    text: "Fees",
+  },
+  {
+    icon: <BarChartIcon />,
+    text: "Exams",
+  },
+  {
+    icon: <EmailIcon />,
+    text: "News",
+  },
+];
 
-    <ListItem text="Students">
-      <AssignmentIndIcon />
-    </ListItem>
+const secondaryItems = ["Current", "Last", "Year"];
 
-    <ListItem text="Staff">
-      <PeopleIcon />
-    </ListItem>
-
-    <ListItem text="Fees">
-      <AttachMoneyIcon />
-    </ListItem>
-
-    <ListItem text="Exams">
-      <BarChartIcon />
-    </ListItem>
-
-    <ListItem text="News">
-      <EmailIcon />
-    </ListItem>
-  </>
-);
+export const mainListItems = mainItems.map(({ text, icon }) => (
+  <ListItem key={text} text={text} icon={icon} />
+));
 
 export const secondaryListItems = (
   <>
     <ListSubheader inset>Saved reports</ListSubheader>
 
-    <ListItem text="Current">
-      <AssignmentIcon />
-    </ListItem>
-
-    <ListItem text="Last">
-      <AssignmentIcon />
-    </ListItem>
-
-    <ListItem text="Year">
-      <AssignmentIcon />
-    </ListItem>
+    {secondaryItems.map((text) => (
+      <ListItem key={text} text={text} icon={<AssignmentIcon />} />
+    ))}
   </>
 );
