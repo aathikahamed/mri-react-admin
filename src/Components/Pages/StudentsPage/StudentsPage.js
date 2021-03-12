@@ -6,25 +6,37 @@ import { Link } from "react-router-dom";
 const students = [
   {
     name: "Aathik",
-    year: 12,
+    phoneNumber: "1231231231",
+    contactName: "Aathik",
+    id: 1,
+    class: 12,
     age: 16,
     gender: "Male",
   },
   {
     name: "Aamir",
-    year: 4,
+    phoneNumber: "1231231231",
+    contactName: "Aathik",
+    id: 2,
+    class: 4,
     age: 10,
     gender: "Male",
   },
   {
     name: "Aamina",
-    year: 9,
+    phoneNumber: "1231231231",
+    contactName: "Aathik",
+    id: 3,
+    class: 9,
     age: 12,
     gender: "Female",
   },
   {
     name: "Aashik",
-    year: 12,
+    phoneNumber: "1231231231",
+    contactName: "Aathik",
+    id: 4,
+    class: 12,
     age: 17,
     gender: "Male",
   },
@@ -46,14 +58,28 @@ const years = {
 };
 
 const columns = [
+  {
+    title: "Code",
+    field: "id",
+    // type: "numeric",
+    // cellStyle: {
+    //   width: 150,
+    //   maxWidth: 150,
+    // },
+    // headerStyle: {
+    //   width: 150,
+    //   maxWidth: 150,
+    // },
+  },
   { title: "Name", field: "name" },
-  { title: "Year", field: "year", lookup: years },
+  { title: "Class", field: "class", lookup: years },
   {
     title: "Gender",
     field: "gender",
     lookup: { Male: "Male", Female: "Female" },
   },
-  { title: "Age", field: "age", type: "numeric" },
+  { title: "Contact Person", field: "contactName" },
+  { title: "Telephone", field: "phoneNumber" },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -89,6 +115,8 @@ const StudentsPage = () => {
         options={{
           filtering: true,
           exportButton: true,
+          pageSize: 10, // make initial page size
+          emptyRowsWhenPaging: true, //to make page size fix in case of less data rows
         }}
         onSelectionChange={(rows) => {
           console.log("Rows: ", rows);
